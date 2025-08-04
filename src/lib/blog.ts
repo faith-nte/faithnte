@@ -87,59 +87,74 @@ function transformWordPressPost(wpPost: WordPressPost): BlogPost {
   };
 }
 
-// Fetch posts from WordPress API
+// Fetch posts from WordPress API with retry logic
 async function fetchWordPressPosts(): Promise<BlogPost[]> {
-  try {
-    console.log('Fetching WordPress posts from:', WORDPRESS_API_URL);
-    console.log('Environment:', typeof window !== 'undefined' ? 'browser' : 'server');
-    
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
-    
-    const response = await fetch(
-      `${WORDPRESS_API_URL}?_embed=true&per_page=100&status=publish`,
-      {
-        headers: {
-          Accept: "application/json",
-          'User-Agent': 'Faithnte-Website/1.0',
-          'Cache-Control': 'no-cache'
-        },
-        signal: controller.signal
+  const maxRetries = 3;
+  let lastError: Error | null = null;
+
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      console.log(`Fetching WordPress posts (attempt ${attempt}/${maxRetries}) from:`, WORDPRESS_API_URL);
+      console.log(
+        "Environment:",
+        typeof window !== "undefined" ? "browser" : "server"
+      );
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000); // 20 second timeout
+
+      const response = await fetch(
+        `${WORDPRESS_API_URL}?_embed=true&per_page=100&status=publish`,
+        {
+          headers: {
+            Accept: "application/json",
+            "User-Agent": "Faithnte-Website/1.0",
+            "Cache-Control": "no-cache",
+          },
+          signal: controller.signal,
+        }
+      );
+
+      clearTimeout(timeoutId);
+      console.log(`WordPress API response status (attempt ${attempt}):`, response.status);
+
+      if (!response.ok) {
+        console.error(
+          `WordPress API error (attempt ${attempt}): ${response.status} ${response.statusText}`
+        );
+        throw new Error(`WordPress API error: ${response.status}`);
       }
-    );
 
-    clearTimeout(timeoutId);
-    console.log('WordPress API response status:', response.status);
+      const wpPosts: WordPressPost[] = await response.json();
+      console.log(`Successfully fetched ${wpPosts.length} posts from WordPress (attempt ${attempt})`);
 
-    if (!response.ok) {
-      console.error(`WordPress API error: ${response.status} ${response.statusText}`);
-      throw new Error(`WordPress API error: ${response.status}`);
+      if (!wpPosts || wpPosts.length === 0) {
+        console.warn(`No posts returned from WordPress API (attempt ${attempt})`);
+        throw new Error("No posts returned from API");
+      }
+
+      const transformedPosts = wpPosts.map(transformWordPressPost);
+      console.log(`Transformed ${transformedPosts.length} posts successfully`);
+
+      return transformedPosts;
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      console.error(`Error fetching WordPress posts (attempt ${attempt}):`, lastError);
+      
+      if (attempt < maxRetries) {
+        const delay = attempt * 2000; // Exponential backoff: 2s, 4s, 6s
+        console.log(`Retrying in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+      }
     }
-
-    const wpPosts: WordPressPost[] = await response.json();
-    console.log(`Successfully fetched ${wpPosts.length} posts from WordPress`);
-    
-    if (!wpPosts || wpPosts.length === 0) {
-      console.warn('No posts returned from WordPress API');
-      throw new Error('No posts returned from API');
-    }
-    
-    const transformedPosts = wpPosts.map(transformWordPressPost);
-    console.log(`Transformed ${transformedPosts.length} posts`);
-    
-    return transformedPosts;
-  } catch (error) {
-    console.error("Error fetching WordPress posts:", error);
-    console.error("Error details:", error instanceof Error ? {
-      name: error.name,
-      message: error.message,
-      cause: error.cause
-    } : { error });
-    
-    // Return fallback mock data for development/build reliability
-    console.log("Returning fallback mock data due to error");
-    return getFallbackPosts();
   }
+
+  console.error("All retry attempts failed, using fallback posts");
+  console.error("Final error:", lastError);
+  
+  // Return fallback posts after all retries failed
+  console.log("Returning fallback posts with real content");
+  return getFallbackPosts();
 }
 
 // Get all posts with caching
@@ -229,18 +244,46 @@ export async function getAllTags(): Promise<string[]> {
 function getFallbackPosts(): BlogPost[] {
   return [
     {
-      id: "fallback-1",
-      title: "Blog posts are loading...",
-      slug: "loading",
-      excerpt: "We're currently loading blog posts from our WordPress site. Please check back in a moment.",
-      content: "<p>Blog posts are being loaded from our WordPress site.</p>",
+      id: "49",
+      title: "How We Transformed NHS GP Website with WordPress & Nightingale Theme and How You Can Achieve the Same",
+      slug: "gp-website-with-wordpress-nightingale-theme",
+      excerpt: "In May 2023, NHSE released a GP website benchmarking and improvement tool. The tool has three focuses but the top two are: At our PCN, we used this tool to benchmark our GP websites, improve them, and create an adjusted benchmarking framework that meets all NHS guidelines.",
+      content: "<p>In May 2023, NHSE released a GP website benchmarking and improvement tool. The tool has three focuses but the top two are...</p>",
       author: "Faith Nte",
-      publishedAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      tags: ["announcement"],
+      publishedAt: "2025-01-12T22:06:33",
+      updatedAt: "2025-02-03T20:04:28",
+      tags: ["nhs", "wordpress", "website"],
       featured: true,
       published: true,
-      coverImage: undefined
-    }
+      coverImage: "https://blog.faithnte.com/wp-content/uploads/2025/01/transformed-gp-website-with-wordpress-cms-and-nightingale-theme.png",
+    },
+    {
+      id: "22",
+      title: "Achieved 9% Growth in NHS App Uptake in 8 Months",
+      slug: "9-nhs-app-uptake-in-8-months",
+      excerpt: "Our PCN got into 2024 at 55% NHS App uptake. A fairly good amount, but our ICB wanted 70% by December 2024. If we increased monthly registration from 140 to 220, we could only reach 70% by December 2025 (one year later).",
+      content: "<p>Our PCN got into 2024 at 55% NHS App uptake. A fairly good amount, but our ICB wanted 70% by December 2024...</p>",
+      author: "Faith Nte", 
+      publishedAt: "2025-01-01T21:49:13",
+      updatedAt: "2025-02-03T20:04:51",
+      tags: ["nhs", "digital-transformation"],
+      featured: true,
+      published: true,
+      coverImage: undefined,
+    },
+    {
+      id: "7",
+      title: "Care Home Proxy Access: How We Did It – 4 Steps to Achieve the Same with This NHS Template",
+      slug: "care-home-proxy-access",
+      excerpt: "Care home proxy access enables care home staff to access residents' GP services on time. Every week, a GP from the surgery gets an appointment to visit a resident of a care home who has a medical problem.",
+      content: "<p>Care home proxy access enables care home staff to access residents' GP services on time...</p>",
+      author: "Faith Nte",
+      publishedAt: "2024-12-21T12:11:50",
+      updatedAt: "2025-02-03T20:05:15", 
+      tags: ["nhs", "care-homes"],
+      featured: true,
+      published: true,
+      coverImage: undefined,
+    },
   ];
 }
