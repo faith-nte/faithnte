@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
   title: string;
@@ -7,10 +7,14 @@ export interface Props {
   image?: string;
 }
 
-const { title, description = "Faith Nte - Fractional SEO Consultant for Private Practice Brands", image = "/og-image.jpg" } = Astro.props;
+const {
+  title,
+  description = "Faith Nte - Fractional SEO Consultant for Private Practice Brands",
+  image = "/og-image.jpg",
+} = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -18,7 +22,7 @@ const { title, description = "Faith Nte - Fractional SEO Consultant for Private 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
@@ -61,7 +65,7 @@ const { title, description = "Faith Nte - Fractional SEO Consultant for Private 
             },
             "knowsAbout": [
               "SEO",
-              "Search Engine Optimization", 
+              "Search Engine Optimization",
               "Digital Marketing",
               "Web Design",
               "Healthcare Marketing",
@@ -93,7 +97,7 @@ const { title, description = "Faith Nte - Fractional SEO Consultant for Private 
                   }
                 },
                 {
-                  "@type": "Offer", 
+                  "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
                     "name": "SEO Consulting",
@@ -103,7 +107,7 @@ const { title, description = "Faith Nte - Fractional SEO Consultant for Private 
                 {
                   "@type": "Offer",
                   "itemOffered": {
-                    "@type": "Service", 
+                    "@type": "Service",
                     "name": "Web Design",
                     "description": "SEO-ready websites for healthcare professionals"
                   }
@@ -133,58 +137,105 @@ const { title, description = "Faith Nte - Fractional SEO Consultant for Private 
 
     <title>{title}</title>
   </head>
-  
+
   <body class="font-sans bg-neutral-50">
     <!-- Navigation -->
-    <nav class="bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200 sticky top-0 z-50">
+    <nav
+      class="bg-white/95 backdrop-blur-md shadow-sm border-b border-neutral-200 sticky top-0 z-50"
+    >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <div class="flex items-center">
             <a href="/" class="flex items-center space-x-3">
-              <div class="w-10 h-10 bg-gradient-to-r from-neutral-800 to-neutral-600 rounded-xl flex items-center justify-center shadow-lg">
+              <div
+                class="w-10 h-10 bg-gradient-to-r from-neutral-800 to-neutral-600 rounded-xl flex items-center justify-center shadow-lg"
+              >
                 <span class="text-white font-bold text-lg">F</span>
               </div>
-              <span class="text-xl font-bold bg-gradient-to-r from-neutral-800 to-black bg-clip-text text-transparent">Faith Nte</span>
+              <span
+                class="text-xl font-bold bg-gradient-to-r from-neutral-800 to-black bg-clip-text text-transparent"
+                >Faith Nte</span
+              >
             </a>
           </div>
-          
+
           <!-- Desktop Navigation Links -->
           <div class="hidden md:flex items-center space-x-8">
-            <a href="/" class="text-neutral-600 hover:text-black transition-colors font-medium">Home</a>
-            <a href="/blog" class="text-neutral-600 hover:text-black transition-colors font-medium">Blog</a>
-            <a href="/about" class="text-neutral-600 hover:text-black transition-colors font-medium">About</a>
-            <a 
-              href="https://outlook.office.com/book/Free30MinsConsultation@faithnte.com/?utm_source=faithnte.com&utm_medium=social&utm_campaign=FreeConsultationPromo&ismsaljsauthenabled=true" 
+            <a
+              href="/"
+              class="text-neutral-600 hover:text-black transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="/blog"
+              class="text-neutral-600 hover:text-black transition-colors font-medium"
+              >Blog</a
+            >
+            <a
+              href="/about"
+              class="text-neutral-600 hover:text-black transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="https://outlook.office.com/book/Free30MinsConsultation@faithnte.com/?utm_source=faithnte.com&utm_medium=social&utm_campaign=FreeConsultationPromo&ismsaljsauthenabled=true"
               class="bg-gradient-to-r from-neutral-800 to-black text-white px-6 py-2 rounded-lg hover:shadow-lg transition-all duration-300 text-sm font-medium"
               target="_blank"
             >
               Book Consultation
             </a>
           </div>
-          
+
           <!-- Mobile menu button -->
           <div class="md:hidden">
-            <button 
-              type="button" 
+            <button
+              type="button"
               class="text-neutral-600 hover:text-black focus:outline-none focus:text-black p-2"
               aria-label="Toggle mobile menu"
               id="mobile-menu-button"
             >
-              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
             </button>
           </div>
         </div>
-        
+
         <!-- Mobile menu -->
         <div class="md:hidden hidden" id="mobile-menu">
-          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-neutral-200 bg-white">
-            <a href="/" class="block text-neutral-600 hover:text-black px-3 py-2 transition-colors font-medium">Home</a>
-            <a href="/blog" class="block text-neutral-600 hover:text-black px-3 py-2 transition-colors font-medium">Blog</a>
-            <a href="/about" class="block text-neutral-600 hover:text-black px-3 py-2 transition-colors font-medium">About</a>
-            <a href="https://outlook.office.com/book/Free30MinsConsultation@faithnte.com/?utm_source=faithnte.com&utm_medium=social&utm_campaign=FreeConsultationPromo&ismsaljsauthenabled=true" target="_blank" class="block bg-gradient-to-r from-neutral-800 to-black text-white px-3 py-2 rounded-lg hover:shadow-lg transition-all duration-300 mx-3 mt-2 text-center font-medium">Book Consultation</a>
+          <div
+            class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-neutral-200 bg-white"
+          >
+            <a
+              href="/"
+              class="block text-neutral-600 hover:text-black px-3 py-2 transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="/blog"
+              class="block text-neutral-600 hover:text-black px-3 py-2 transition-colors font-medium"
+              >Blog</a
+            >
+            <a
+              href="/about"
+              class="block text-neutral-600 hover:text-black px-3 py-2 transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="https://outlook.office.com/book/Free30MinsConsultation@faithnte.com/?utm_source=faithnte.com&utm_medium=social&utm_campaign=FreeConsultationPromo&ismsaljsauthenabled=true"
+              target="_blank"
+              class="block bg-gradient-to-r from-neutral-800 to-black text-white px-3 py-2 rounded-lg hover:shadow-lg transition-all duration-300 mx-3 mt-2 text-center font-medium"
+              >Book Consultation</a
+            >
           </div>
         </div>
       </div>
@@ -202,61 +253,119 @@ const { title, description = "Faith Nte - Fractional SEO Consultant for Private 
           <!-- Logo and Description -->
           <div class="md:col-span-2">
             <div class="flex items-center space-x-3 mb-4">
-              <div class="w-10 h-10 bg-gradient-to-r from-neutral-600 to-neutral-400 rounded-xl flex items-center justify-center shadow-lg">
+              <div
+                class="w-10 h-10 bg-gradient-to-r from-neutral-600 to-neutral-400 rounded-xl flex items-center justify-center shadow-lg"
+              >
                 <span class="text-white font-bold text-lg">F</span>
               </div>
               <span class="text-xl font-bold">Faith Nte</span>
             </div>
             <p class="text-neutral-300 mb-6 max-w-md">
-              Fractional SEO Consultant helping private practice brands grow with strategic 
-              website optimization and growth marketing without technical overwhelm.
+              Fractional SEO Consultant helping private practice brands grow
+              with strategic website optimization and growth marketing without
+              technical overwhelm.
             </p>
             <div class="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/in/faith-nte/" 
+              <a
+                href="https://www.linkedin.com/in/faith-nte/"
                 target="_blank"
                 class="text-neutral-400 hover:text-neutral-200 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  ></path>
                 </svg>
               </a>
-              <a 
+              <a
                 href="mailto:faith@faithnte.com"
                 class="text-neutral-400 hover:text-neutral-200 transition-colors"
                 aria-label="Email"
               >
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
                 </svg>
               </a>
             </div>
           </div>
-          
+
           <!-- Quick Links -->
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-neutral-100">Quick Links</h3>
+            <h3 class="text-lg font-semibold mb-4 text-neutral-100">
+              Quick Links
+            </h3>
             <ul class="space-y-2">
-              <li><a href="/" class="text-neutral-300 hover:text-white transition-colors">Home</a></li>
-              <li><a href="/blog" class="text-neutral-300 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="/about" class="text-neutral-300 hover:text-white transition-colors">About</a></li>
-              <li><a href="https://outlook.office365.com/owa/calendar/Bookings@fenndgital.co.uk/bookings/" target="_blank" class="text-neutral-300 hover:text-white transition-colors">Book Consultation</a></li>
+              <li>
+                <a
+                  href="/"
+                  class="text-neutral-300 hover:text-white transition-colors"
+                  >Home</a>
+              </li>
+              <li>
+                <a
+                  href="/blog"
+                  class="text-neutral-300 hover:text-white transition-colors"
+                  >Blog</a>
+              </li>
+              <li>
+                <a
+                  href="/about"
+                  class="text-neutral-300 hover:text-white transition-colors"
+                  >About</a>
+              </li>
+              <li>
+                <a
+                  href="https://outlook.office365.com/owa/calendar/Bookings@fenndgital.co.uk/bookings/"
+                  target="_blank"
+                  class="text-neutral-300 hover:text-white transition-colors"
+                  >Book Consultation</a>
+              </li>
             </ul>
           </div>
-          
+
           <!-- Services -->
           <div>
-            <h3 class="text-lg font-semibold mb-4 text-neutral-100">Services</h3>
+            <h3 class="text-lg font-semibold mb-4 text-neutral-100">
+              Services
+            </h3>
             <ul class="space-y-2 text-sm">
-              <li><a href="https://fenn.digital/" target="_blank" class="text-neutral-300 hover:text-white transition-colors">Website Design</a></li>
-              <li><a href="#services" class="text-neutral-300 hover:text-white transition-colors">SEO Consulting</a></li>
-              <li><a href="#services" class="text-neutral-300 hover:text-white transition-colors">Growth Strategy</a></li>
+              <li>
+                <a
+                  href="https://fenn.digital/"
+                  target="_blank"
+                  class="text-neutral-300 hover:text-white transition-colors"
+                  >Website Design</a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-neutral-300 hover:text-white transition-colors"
+                  >SEO Consulting</a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-neutral-300 hover:text-white transition-colors"
+                  >Growth Strategy</a>
+              </li>
             </ul>
           </div>
         </div>
-        
-        <div class="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+
+        <div
+          class="border-t border-neutral-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
           <p class="text-neutral-400 text-sm">
             © 2025 Faith Nte. All rights reserved.
           </p>
@@ -269,12 +378,14 @@ const { title, description = "Faith Nte - Fractional SEO Consultant for Private 
 
     <!-- Mobile menu toggle script -->
     <script>
-      document.getElementById('mobile-menu-button')?.addEventListener('click', () => {
-        const menu = document.getElementById('mobile-menu');
-        if (menu) {
-          menu.classList.toggle('hidden');
-        }
-      });
+      document
+        .getElementById("mobile-menu-button")
+        ?.addEventListener("click", () => {
+          const menu = document.getElementById("mobile-menu");
+          if (menu) {
+            menu.classList.toggle("hidden");
+          }
+        });
     </script>
   </body>
 </html>

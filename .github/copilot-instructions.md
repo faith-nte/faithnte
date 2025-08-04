@@ -14,12 +14,14 @@ This is an Astro-based website for faithnte.com featuring a headless blog system
 ## Key Components
 
 ### API Endpoints
+
 - `/api/blog` - Get all blog posts (paginated)
 - `/api/blog?featured=true` - Get featured posts only
 - `/api/blog/[slug]` - Get specific post by slug
 - `/api/blog/tags/[tag]` - Get posts filtered by tag
 
 ### File Structure
+
 - `src/pages/` - Page routes and API endpoints
 - `src/components/` - Reusable Astro components
 - `src/layouts/` - Layout templates
@@ -27,6 +29,7 @@ This is an Astro-based website for faithnte.com featuring a headless blog system
 - `src/types/` - TypeScript type definitions
 
 ### Data Management
+
 - Blog posts are currently stored in `src/lib/blog.ts` as mock data
 - All API responses follow a consistent `APIResponse<T>` interface
 - Posts include metadata for SEO, pagination, and filtering
@@ -42,6 +45,7 @@ This is an Astro-based website for faithnte.com featuring a headless blog system
 ## Blog Post Structure
 
 Each blog post includes:
+
 - Unique ID and slug for routing
 - SEO metadata (title, excerpt, cover image)
 - Author and publication timestamps

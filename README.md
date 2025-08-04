@@ -43,16 +43,19 @@ src/
 ## 🚀 Getting Started
 
 1. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
 2. **Start the development server:**
+
    ```bash
    npm run dev
    ```
 
 3. **Build for production:**
+
    ```bash
    npm run build
    ```
@@ -67,32 +70,41 @@ src/
 The headless blog system provides the following REST API endpoints:
 
 ### Get All Posts
+
 ```
 GET /api/blog
 ```
+
 Returns paginated blog posts with metadata.
 
 **Query Parameters:**
+
 - `page` (number): Page number for pagination (default: 1)
 - `limit` (number): Posts per page (default: 10)
 - `featured` (boolean): Filter for featured posts only
 
 ### Get Featured Posts
+
 ```
 GET /api/blog?featured=true
 ```
+
 Returns only featured blog posts.
 
 ### Get Post by Slug
+
 ```
 GET /api/blog/[slug]
 ```
+
 Returns a specific blog post by its slug.
 
 ### Get Posts by Tag
+
 ```
 GET /api/blog/tags/[tag]
 ```
+
 Returns all posts filtered by a specific tag.
 
 ## 📝 API Response Format
@@ -115,6 +127,7 @@ interface APIResponse<T> {
 Currently, blog posts are stored in `src/lib/blog.ts`. To add new posts, update the `mockBlogPosts` array with new blog post objects.
 
 In a production environment, you would typically:
+
 1. Connect to a database or headless CMS
 2. Update the functions in `src/lib/blog.ts` to fetch from your data source
 3. Keep the API endpoints unchanged for consistency
@@ -122,6 +135,7 @@ In a production environment, you would typically:
 ### Styling
 
 The project uses Tailwind CSS for styling. You can:
+
 - Modify the theme in `tailwind.config.js`
 - Update component styles in individual `.astro` files
 - Customize the color scheme by updating CSS classes
@@ -129,6 +143,7 @@ The project uses Tailwind CSS for styling. You can:
 ## 🌐 Deployment
 
 This project is configured for deployment with the Node.js adapter. You can deploy to:
+
 - **Vercel**: Deploy with zero configuration
 - **Netlify**: Add the Netlify adapter
 - **Node.js servers**: Use the built-in Node.js adapter
@@ -137,8 +152,9 @@ This project is configured for deployment with the Node.js adapter. You can depl
 ## 🔗 API Usage Examples
 
 ### Fetch all posts with JavaScript:
+
 ```javascript
-const response = await fetch('/api/blog');
+const response = await fetch("/api/blog");
 const { success, data } = await response.json();
 if (success) {
   console.log(data.posts);
@@ -146,8 +162,9 @@ if (success) {
 ```
 
 ### Get featured posts:
+
 ```javascript
-const response = await fetch('/api/blog?featured=true');
+const response = await fetch("/api/blog?featured=true");
 const { success, data } = await response.json();
 if (success) {
   console.log(data); // Array of featured posts
@@ -155,8 +172,9 @@ if (success) {
 ```
 
 ### Fetch a specific post:
+
 ```javascript
-const response = await fetch('/api/blog/welcome-to-faithnte');
+const response = await fetch("/api/blog/welcome-to-faithnte");
 const { success, data } = await response.json();
 if (success) {
   console.log(data); // Single blog post object

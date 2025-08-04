@@ -1,0 +1,190 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Contact - Faithnte"
+  description="Get in touch with the Faithnte team"
+>
+  <div class="bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Contact Us
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Have questions about our platform, API, or technology? We'd love to
+          hear from you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+            Send us a message
+          </h2>
+          <form class="space-y-6">
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Your name"
+              />
+            </div>
+
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="your@email.com"
+              />
+            </div>
+
+            <div>
+              <label
+                for="subject"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Subject
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+                <option value="">Choose a topic</option>
+                <option value="general">General Inquiry</option>
+                <option value="api">API Questions</option>
+                <option value="technical">Technical Support</option>
+                <option value="partnership">Partnership</option>
+                <option value="feedback">Feedback</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                placeholder="Tell us how we can help you..."></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-6">
+            Other ways to reach us
+          </h2>
+
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                API Documentation
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Looking for technical documentation? Check out our API
+                endpoints:
+              </p>
+              <div class="space-y-2">
+                <a
+                  href="/api/blog"
+                  class="block text-blue-600 hover:text-blue-700 font-mono text-sm"
+                >
+                  /api/blog
+                </a>
+                <a
+                  href="/api/blog?featured=true"
+                  class="block text-blue-600 hover:text-blue-700 font-mono text-sm"
+                >
+                  /api/blog?featured=true
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Quick Links
+              </h3>
+              <div class="space-y-2">
+                <a href="/blog" class="block text-blue-600 hover:text-blue-700">
+                  Read our blog
+                </a>
+                <a
+                  href="/about"
+                  class="block text-blue-600 hover:text-blue-700"
+                >
+                  Learn more about us
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                Response Time
+              </h3>
+              <p class="text-gray-600">
+                We typically respond to inquiries within 24-48 hours during
+                business days.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-blue-50 rounded-lg">
+            <h3 class="text-lg font-semibold text-blue-900 mb-2">
+              Interested in our tech stack?
+            </h3>
+            <p class="text-blue-700 text-sm">
+              This website is built with Astro, TypeScript, and Tailwind CSS.
+              The blog system uses a headless architecture with RESTful APIs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  // Add form submission handling
+  document.querySelector("form")?.addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert(
+      "Thank you for your message! This is a demo form. In a real application, this would send your message to our team."
+    );
+  });
+</script>
