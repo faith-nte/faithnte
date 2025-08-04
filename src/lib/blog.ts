@@ -90,25 +90,55 @@ function transformWordPressPost(wpPost: WordPressPost): BlogPost {
 // Fetch posts from WordPress API
 async function fetchWordPressPosts(): Promise<BlogPost[]> {
   try {
+    console.log('Fetching WordPress posts from:', WORDPRESS_API_URL);
+    console.log('Environment:', typeof window !== 'undefined' ? 'browser' : 'server');
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+    
     const response = await fetch(
       `${WORDPRESS_API_URL}?_embed=true&per_page=100&status=publish`,
       {
         headers: {
           Accept: "application/json",
+          'User-Agent': 'Faithnte-Website/1.0',
+          'Cache-Control': 'no-cache'
         },
+        signal: controller.signal
       }
     );
 
+    clearTimeout(timeoutId);
+    console.log('WordPress API response status:', response.status);
+
     if (!response.ok) {
+      console.error(`WordPress API error: ${response.status} ${response.statusText}`);
       throw new Error(`WordPress API error: ${response.status}`);
     }
 
     const wpPosts: WordPressPost[] = await response.json();
-    return wpPosts.map(transformWordPressPost);
+    console.log(`Successfully fetched ${wpPosts.length} posts from WordPress`);
+    
+    if (!wpPosts || wpPosts.length === 0) {
+      console.warn('No posts returned from WordPress API');
+      throw new Error('No posts returned from API');
+    }
+    
+    const transformedPosts = wpPosts.map(transformWordPressPost);
+    console.log(`Transformed ${transformedPosts.length} posts`);
+    
+    return transformedPosts;
   } catch (error) {
     console.error("Error fetching WordPress posts:", error);
-    // Return empty array on error - you might want to handle this differently
-    return [];
+    console.error("Error details:", error instanceof Error ? {
+      name: error.name,
+      message: error.message,
+      cause: error.cause
+    } : { error });
+    
+    // Return fallback mock data for development/build reliability
+    console.log("Returning fallback mock data due to error");
+    return getFallbackPosts();
   }
 }
 
@@ -193,4 +223,24 @@ export async function getAllTags(): Promise<string[]> {
     post.tags.forEach((tag) => tags.add(tag));
   });
   return Array.from(tags).sort();
+}
+
+// Fallback posts for when WordPress API is unavailable
+function getFallbackPosts(): BlogPost[] {
+  return [
+    {
+      id: "fallback-1",
+      title: "Blog posts are loading...",
+      slug: "loading",
+      excerpt: "We're currently loading blog posts from our WordPress site. Please check back in a moment.",
+      content: "<p>Blog posts are being loaded from our WordPress site.</p>",
+      author: "Faith Nte",
+      publishedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      tags: ["announcement"],
+      featured: true,
+      published: true,
+      coverImage: undefined
+    }
+  ];
 }
