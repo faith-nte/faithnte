@@ -1,0 +1,42 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getAllPosts } from "../lib/blog";
+
+const posts = await getAllPosts();
+---
+
+<Layout
+  title="Blog - Faithnte"
+  description="Read our latest blog posts and insights"
+>
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          My Blog
+        </h1>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          I write about my personal experience on current projects, work and a
+          mix of marketing tips.
+        </p>
+      </div>
+
+      <!-- Blog Posts Grid -->
+      {
+        posts.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <BlogCard {...post} />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-12">
+            <p class="text-gray-500 text-lg">No blog posts available yet.</p>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Layout>

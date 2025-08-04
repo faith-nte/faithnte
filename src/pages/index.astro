@@ -1,0 +1,556 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlogCard from "../components/BlogCard.astro";
+import { getFeaturedPosts } from "../lib/blog";
+
+const featuredPosts = await getFeaturedPosts();
+---
+
+<Layout
+  title="Faith Nte - Fractional SEO Consultant for Private Practice Brands"
+>
+  <!-- Hero Section -->
+  <section
+    class="relative bg-gradient-to-br from-neutral-50 via-stone-50 to-neutral-100 overflow-hidden"
+  >
+    <div class="absolute inset-0 opacity-20">
+      <div
+        class="absolute inset-0"
+        style='background-image: url(&apos;data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23d6d3d1" fill-opacity="0.1"><circle cx="30" cy="30" r="4"/></g></g></svg>&apos;)'
+      >
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Content -->
+        <div class="text-center lg:text-left">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-neutral-100 text-neutral-800 rounded-full text-sm font-medium mb-6"
+          >
+            <span class="w-2 h-2 bg-neutral-500 rounded-full mr-2 animate-pulse"
+            ></span>
+            Available for New Projects
+          </div>
+
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-6"
+          >
+            Hi. I'm
+            <span
+              class="bg-gradient-to-r from-neutral-600 via-neutral-400 to-stone-400 bg-clip-text text-transparent"
+            >
+              Faith Nte
+            </span>
+          </h1>
+
+          <p class="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed">
+            Fractional SEO Consultant for
+            <span class="text-black font-semibold">Private Practice Brands</span
+            >
+          </p>
+
+          <p class="text-lg text-neutral-600 mb-10 max-w-2xl">
+            Grow your private practice with a website that connects you with
+            your ideal clients without technical overwhelm.
+          </p>
+
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          >
+            <a
+              href="https://outlook.office.com/book/Free30MinsConsultation@faithnte.com/?utm_source=faithnte.com&utm_medium=social&utm_campaign=FreeConsultationPromo&ismsaljsauthenabled=true"
+              class="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-neutral-800 to-black text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+              target="_blank"
+            >
+              Book Free Consultation
+              <svg
+                class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+
+            <a
+              href="#services"
+              class="inline-flex items-center justify-center px-8 py-4 border-2 border-neutral-300 text-neutral-700 rounded-xl font-semibold text-lg hover:bg-neutral-50 hover:border-neutral-400 transition-all duration-300"
+            >
+              View Services
+            </a>
+          </div>
+        </div>
+
+        <!-- Visual Element -->
+        <div class="relative">
+          <div class="relative w-full max-w-md mx-auto">
+            <!-- Floating Cards -->
+            <div class="absolute inset-0 scale-110">
+              <div
+                class="absolute top-0 right-0 w-32 h-20 bg-gradient-to-br from-neutral-200 to-neutral-300 rounded-2xl shadow-lg transform rotate-12 opacity-80 animate-pulse"
+              >
+              </div>
+              <div
+                class="absolute bottom-10 left-0 w-28 h-16 bg-gradient-to-br from-stone-200 to-stone-300 rounded-2xl shadow-lg transform -rotate-6 opacity-70 animate-pulse delay-75"
+              >
+              </div>
+              <div
+                class="absolute top-1/2 right-8 w-24 h-32 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-2xl shadow-lg transform rotate-6 opacity-90 animate-pulse delay-150"
+              >
+              </div>
+            </div>
+
+            <!-- Central Element -->
+            <div
+              class="relative bg-white rounded-3xl shadow-2xl p-8 border border-neutral-100"
+            >
+              <div class="text-center">
+                <div
+                  class="w-20 h-20 bg-gradient-to-br from-neutral-600 to-neutral-800 rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg"
+                >
+                  <svg
+                    class="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-xl font-bold text-black mb-2">SEO Growth</h3>
+                <p class="text-neutral-600 text-sm">
+                  Converting visitors into clients
+                </p>
+                <div class="mt-4 flex justify-center space-x-1">
+                  <div
+                    class="w-2 h-2 bg-neutral-600 rounded-full animate-bounce"
+                  >
+                  </div>
+                  <div
+                    class="w-2 h-2 bg-neutral-400 rounded-full animate-bounce delay-75"
+                  >
+                  </div>
+                  <div
+                    class="w-2 h-2 bg-stone-400 rounded-full animate-bounce delay-150"
+                  >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+          Are you just starting out or looking to
+          <span
+            class="bg-gradient-to-r from-neutral-700 to-black bg-clip-text text-transparent"
+            >transform your website?</span
+          >
+        </h2>
+        <p class="text-xl text-neutral-600 max-w-3xl mx-auto">
+          I help private practice brands build websites that bring consistent
+          clients and grow with strategic SEO
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div
+          class="group relative bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-neutral-700 to-black rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-neutral-600 to-neutral-800 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-black mb-4">Website Strategy</h3>
+            <p class="text-neutral-600 mb-6">
+              Custom website design and development that connects with your
+              ideal clients and drives conversions.
+            </p>
+            <a
+              href="https://fenn.digital/"
+              target="_blank"
+              class="inline-flex items-center text-neutral-700 font-semibold hover:text-black transition-colors"
+            >
+              Learn More
+              <svg
+                class="ml-1 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div
+          class="group relative bg-gradient-to-br from-stone-50 to-stone-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-neutral-700 to-black rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-stone-600 to-stone-800 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-black mb-4">SEO Optimization</h3>
+            <p class="text-neutral-600 mb-6">
+              Strategic SEO to help your private practice rank higher and
+              attract more qualified leads organically.
+            </p>
+            <a
+              href="#contact"
+              class="inline-flex items-center text-neutral-700 font-semibold hover:text-black transition-colors"
+            >
+              Get Started
+              <svg
+                class="ml-1 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div
+          class="group relative bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+        >
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-neutral-700 to-black rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+          >
+          </div>
+          <div class="relative">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-neutral-700 to-black rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-black mb-4">Growth Strategy</h3>
+            <p class="text-neutral-600 mb-6">
+              Comprehensive growth marketing strategies to scale your private
+              practice without technical overwhelm.
+            </p>
+            <a
+              href="#contact"
+              class="inline-flex items-center text-neutral-700 font-semibold hover:text-black transition-colors"
+            >
+              Explore Options
+              <svg
+                class="ml-1 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-20 bg-gradient-to-br from-neutral-50 to-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-black mb-6">
+            Why Choose a
+            <span
+              class="bg-gradient-to-r from-neutral-700 to-black bg-clip-text text-transparent"
+            >
+              Fractional SEO Consultant?
+            </span>
+          </h2>
+          <p class="text-lg text-neutral-600 mb-8">
+            I run a web design and growth marketing company for private practice
+            brands at
+            <a
+              href="https://fenn.digital/"
+              class="text-neutral-700 hover:text-black font-semibold"
+              target="_blank">Fenn Digital</a
+            >, but you can hire me as a fractional SEO consultant to help you
+            with your website and SEO strategy.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 bg-neutral-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <p class="text-neutral-600">
+                Expert-level SEO without the overhead of a full-time hire
+              </p>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 bg-stone-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <p class="text-neutral-600">
+                Proven strategies specifically for private practice brands
+              </p>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div
+                class="w-6 h-6 bg-neutral-700 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-3 h-3 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <p class="text-neutral-600">
+                Flexible engagement that fits your budget and timeline
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div
+            class="bg-white rounded-3xl shadow-2xl p-8 border border-neutral-100"
+          >
+            <div class="text-center mb-6">
+              <div
+                class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-neutral-100 to-stone-100 rounded-full text-sm font-medium text-neutral-700 mb-4"
+              >
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                Available for Projects
+              </div>
+              <h3 class="text-2xl font-bold text-black">
+                Ready to Get Started?
+              </h3>
+              <p class="text-neutral-600 mt-2">
+                Let's discuss how I can help grow your practice
+              </p>
+            </div>
+
+            <div class="space-y-4">
+              <a
+                href="https://outlook.office.com/book/Free30MinsConsultation@faithnte.com/?utm_source=faithnte.com&utm_medium=social&utm_campaign=FreeConsultationPromo&ismsaljsauthenabled=true"
+                class="block w-full bg-gradient-to-r from-neutral-800 to-black text-white text-center py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+                target="_blank"
+              >
+                Book Free 30-Min Consultation
+              </a>
+
+              <a
+                href="mailto:faith@faithnte.com"
+                class="block w-full border-2 border-neutral-200 text-neutral-700 text-center py-3 rounded-xl font-semibold hover:bg-neutral-50 hover:border-neutral-300 transition-all duration-300"
+              >
+                Send Direct Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Blog Posts -->
+  {
+    featuredPosts.length > 0 && (
+      <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-black mb-4">
+              Latest Insights
+            </h2>
+            <p class="text-xl text-neutral-600">
+              SEO strategies and growth tips for private practice brands
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {featuredPosts.map((post) => (
+              <BlogCard {...post} />
+            ))}
+          </div>
+
+          <div class="text-center">
+            <a
+              href="/blog"
+              class="inline-flex items-center bg-gradient-to-r from-neutral-800 to-black text-white px-8 py-4 rounded-xl hover:shadow-lg transition-all duration-300 font-semibold"
+            >
+              View All Articles
+              <svg
+                class="ml-2 w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- Contact Section -->
+  <section
+    id="contact"
+    class="py-20 bg-gradient-to-br from-neutral-50 via-stone-50 to-neutral-100"
+  >
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-black mb-6">
+        Let's Grow Your Practice Together
+      </h2>
+      <p class="text-xl text-neutral-600 mb-10 max-w-2xl mx-auto">
+        Ready to attract more ideal clients and scale your private practice?
+        Let's start with a free consultation to discuss your goals.
+      </p>
+
+      <div
+        class="flex flex-col sm:flex-row gap-6 justify-center max-w-lg mx-auto"
+      >
+        <a
+          href="https://outlook.office.com/book/Free30MinsConsultation@faithnte.com/?utm_source=faithnte.com&utm_medium=social&utm_campaign=FreeConsultationPromo&ismsaljsauthenabled=true"
+          class="flex-1 bg-gradient-to-r from-neutral-800 to-black text-white py-4 px-6 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+          target="_blank"
+        >
+          Book Consultation
+        </a>
+
+        <a
+          href="mailto:faith@faithnte.com"
+          class="flex-1 border-2 border-neutral-300 text-neutral-700 py-4 px-6 rounded-xl font-semibold text-lg hover:bg-neutral-50 hover:border-neutral-400 transition-all duration-300"
+        >
+          Send Email
+        </a>
+      </div>
+
+      <div class="mt-12 flex justify-center">
+        <a
+          href="https://www.linkedin.com/in/faith-nte/"
+          target="_blank"
+          class="inline-flex items-center space-x-2 text-neutral-600 hover:text-black transition-colors"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            ></path>
+          </svg>
+          <span>Connect on LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
