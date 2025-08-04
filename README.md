@@ -1,6 +1,6 @@
-# Faithnte.com - Astro Headless Blog Platform
+# Faithnte.com - Professional Website
 
-A modern website built with Astro featuring a headless blog system with RESTful API endpoints.
+Welcome to the official website of Faith Nte, your trusted Fractional SEO Consultant specializing in private practice brands.
 
 ## 🚀 Features
 
