@@ -394,7 +394,8 @@ function getFallbackPosts(): BlogPost[] {
       tags: ["nhs", "digital-transformation"],
       featured: true,
       published: true,
-      coverImage: "https://blog.faithnte.com/wp-content/uploads/2025/01/nhs-app-uptake-growth.png",
+      coverImage:
+        "https://blog.faithnte.com/wp-content/uploads/2025/01/nhs-app-uptake-growth.png",
     },
     {
       id: "7",
@@ -476,7 +477,8 @@ function getFallbackPosts(): BlogPost[] {
       tags: ["nhs", "care-homes"],
       featured: true,
       published: true,
-      coverImage: "https://blog.faithnte.com/wp-content/uploads/2024/12/care-home-proxy-access.png",
+      coverImage:
+        "https://blog.faithnte.com/wp-content/uploads/2024/12/care-home-proxy-access.png",
     },
   ];
 }
